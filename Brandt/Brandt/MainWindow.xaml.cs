@@ -23,6 +23,7 @@ namespace Brandt
         public MainWindow()
         {
             InitializeComponent();
+            SchoolEntities db = new SchoolEntities(@"Server=CV-BB-5323\SQLEXPRESS01;Database=School;Trusted_Connection=True;");
         }
     }
 }
