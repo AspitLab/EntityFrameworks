@@ -23,6 +23,12 @@ namespace Moeller
         public MainWindow()
         {
             InitializeComponent();
+            SchoolEntities1 db = new SchoolEntities1();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
