@@ -69,6 +69,7 @@
     <Compile Include="Course.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBCon.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
