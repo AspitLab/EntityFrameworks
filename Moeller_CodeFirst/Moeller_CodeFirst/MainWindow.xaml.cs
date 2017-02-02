@@ -20,6 +20,7 @@ namespace Moeller_CodeFirst
     /// </summary>
     public partial class MainWindow : Window
     {
+        BloggingContext db = new BloggingContext();
         public MainWindow()
         {
             InitializeComponent();
