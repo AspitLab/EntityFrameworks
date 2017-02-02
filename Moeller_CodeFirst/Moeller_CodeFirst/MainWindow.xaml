@@ -17,10 +17,20 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="Blogs"
+        <ListBox x:Name="ListBoxBlogs"
                  Margin="5"
                  Grid.Column="1"
                  FontSize="14"/>
+
+        <TextBox x:Name="TextBoxBlogName"
+                 Margin="5"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 Height="24"
+                 VerticalAlignment="Top"
+                 FontSize="14"
+                 Text="Blog Name"
+                 HorizontalContentAlignment="Center"/>
 
         <Button x:Name="Button"
                 Margin="5"
