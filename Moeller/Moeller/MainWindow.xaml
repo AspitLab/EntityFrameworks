@@ -13,6 +13,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+
+        <Label x:Name="Label"
+               Margin="5"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Content="NIGGAAA"/>
+
         <Button x:Name="Button"
                 Margin="5"
                 VerticalAlignment="Bottom"

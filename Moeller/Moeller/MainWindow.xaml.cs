@@ -28,7 +28,9 @@ namespace Moeller
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            db.People.Add(new Person() {FirstName = "Jakob", LastName = "Moeller",  EnrollmentDate = new DateTime(2016, 10, 27) });
+            db.SaveChanges();
+            Label.Content = db.Courses;
         }
     }
 }
