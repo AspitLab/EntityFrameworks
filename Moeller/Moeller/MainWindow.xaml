@@ -9,17 +9,53 @@
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+
+        <TextBox x:Name="TextBoxFirstName"
+                 Margin="5"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 FontSize="14"
+                 Text="First Name"/>
+
+        <TextBox x:Name="TextBoxLastName"
+                 Margin="5"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 FontSize="14"
+                 Text="Last Name"/>
+
+        <Label x:Name="Label"
+               Margin="5"
+               Grid.Column="1"
+               Grid.Row="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Content="Test"/>
+
         <Button x:Name="Button"
                 Margin="5"
+                Grid.Column="1"
+                Grid.Row="2"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Center"
                 Width="96"
                 Height="24"
-                Content="I Dunno"
+                Content="Add Person"
                 Click="Button_Click"/>
     </Grid>
 </Window>
