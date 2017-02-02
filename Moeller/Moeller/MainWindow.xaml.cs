@@ -20,15 +20,15 @@ namespace Moeller
     /// </summary>
     public partial class MainWindow : Window
     {
+        public SchoolEntities1 db = new SchoolEntities1();
         public MainWindow()
         {
             InitializeComponent();
-            SchoolEntities1 db = new SchoolEntities1();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }
