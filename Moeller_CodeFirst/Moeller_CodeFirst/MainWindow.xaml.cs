@@ -28,14 +28,14 @@ namespace Moeller_CodeFirst
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Blog blog = new Blog { Name = "" };
+            Blog blog = new Blog { Name = "Wauw" };
             db.Blogs.Add(blog);
             db.SaveChanges();
 
             var query = from newBlog in db.Blogs orderby newBlog.Name select newBlog;
             foreach (var item in query)
             {
-
+                Blogs.Items.Add(item.Name);
             }
         }
     }

@@ -9,13 +9,23 @@
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+
+        <ListBox x:Name="Blogs"
+                 Margin="5"
+                 Grid.Column="1"
+                 FontSize="14"/>
 
         <Button x:Name="Button"
                 Margin="5"
+                Grid.Column="1"
+                Grid.Row="1"
                 Width="96"
                 Height="24"
                 VerticalAlignment="Bottom"
