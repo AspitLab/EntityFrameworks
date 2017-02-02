@@ -24,20 +24,32 @@ namespace Moeller_CodeFirst
         public MainWindow()
         {
             InitializeComponent();
+            UpdateBlogs();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void UpdateBlogs()
         {
             ListBoxBlogs.Items.Clear();
-            Blog blog = new Blog { Name = TextBoxBlogName.Text };
-            db.Blogs.Add(blog);
-            db.SaveChanges();
-
             var query = from newBlog in db.Blogs orderby newBlog.Name select newBlog;
             foreach (var item in query)
             {
                 ListBoxBlogs.Items.Add(item.Name);
             }
+        }
+
+        private void ButtonAddBlog_Click(object sender, RoutedEventArgs e)
+        {
+            Blog blog = new Blog { Name = TextBoxBlogName.Text };
+            db.Blogs.Add(blog);
+            db.SaveChanges();
+            UpdateBlogs();
+        }
+        private void ButtonRemoveBlog_Click(object sender, RoutedEventArgs e)
+        {
+            Blog blog = new Blog { Name = TextBoxBlogName.Text };
+            db.Blogs.Remove(blog);
+            db.SaveChanges();
+            UpdateBlogs();
         }
     }
 }
