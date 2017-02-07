@@ -8,7 +8,6 @@ namespace EF_Code_First_Tutorials
 {
     public class Student
     {
-
         public Student()
         {
 
@@ -22,13 +21,8 @@ namespace EF_Code_First_Tutorials
 
         ////Foreign key for Standard
         ////public int StandardId { get; set; }
-
         //public Teacher Teacher { get; set; }
 
-
         public Standard Standard { get; set; }
-
-
-
     }
 }

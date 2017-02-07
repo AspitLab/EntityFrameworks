@@ -8,7 +8,6 @@ namespace EF_Code_First_Tutorials
 {
     public class Standard
     {
-
         public Standard()
         {
 
@@ -18,7 +17,5 @@ namespace EF_Code_First_Tutorials
 
         public ICollection<Student> Students { get; set; }
        // public IList<Student> Students { get; set; }
-
-
     }
 }

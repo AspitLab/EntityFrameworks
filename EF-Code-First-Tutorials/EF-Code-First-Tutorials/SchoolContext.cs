@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace EF_Code_First_Tutorials
 {
-    
         public class SchoolContext : DbContext
         {
             public SchoolContext() : base("SchoolTest")
@@ -19,8 +18,4 @@ namespace EF_Code_First_Tutorials
             public DbSet<Standard> Standards { get; set; }
 
         }
-
-
-    
-
 }
