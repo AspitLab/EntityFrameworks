@@ -14,8 +14,10 @@ namespace Moeller_CodeFirst_Console
         {
             using (BlogContext db = new BlogContext())
             {
-                ICollection<Blog> query = (ICollection<Blog>) from b in db.Blogs orderby b.Name select b;
-
+                string myString = "1lasdf";
+                Console.WriteLine(myString.GetType().ToString());
+                IOrderedQueryable<Blog> query = from b in db.Blogs orderby b.Name select b;
+                Console.WriteLine(query.GetType().ToString());
                 foreach (Blog item in query)
                 {
                     Console.WriteLine(item.Name);
