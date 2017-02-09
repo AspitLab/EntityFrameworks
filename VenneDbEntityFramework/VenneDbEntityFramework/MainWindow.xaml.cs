@@ -24,5 +24,40 @@ namespace VenneDbEntityFramework
         {
             InitializeComponent();
         }
+
+        private void ListBoxOverview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ButtonLoadImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBoxZip_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
