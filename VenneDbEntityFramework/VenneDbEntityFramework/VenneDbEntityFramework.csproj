@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DCB55F95-0B7F-4735-8431-721BA3890F4B}</ProjectGuid>
+    <ProjectGuid>{D1C60BA0-109F-4264-A276-0334BA27E508}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VenneDbEntityFramework</RootNamespace>
