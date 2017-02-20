@@ -24,14 +24,25 @@ namespace Moeller
         public MainWindow()
         {
             InitializeComponent();
+            updateListBoxPeople();
+        }
+
+        private void updateListBoxPeople()
+        {
+            IOrderedQueryable<Person> query = from zyx in db.People orderby zyx.FirstName select zyx;
+            ListboxPeople.Items.Clear();
+            foreach (Person item in query)
+            {
+                ListboxPeople.Items.Add($"{item.FirstName} {item.LastName}");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            db.People.Add(new Person() {FirstName = TextBoxFirstName.Text, LastName = TextBoxLastName.Text,  EnrollmentDate = new DateTime(2016, 10, 27) });
+            db.People.Add(new Person() { FirstName = TextBoxFirstName.Text, LastName = TextBoxLastName.Text, EnrollmentDate = new DateTime(2016, 10, 27) });
             db.SaveChanges();
             Label.Content = "New person added!";
+            updateListBoxPeople();
         }
     }
 }
