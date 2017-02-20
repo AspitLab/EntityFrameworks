@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d1257939005e4cc095cb05b4c582aff2" Name="Diagram1" ZoomLevel="50" ShowGrid="true">
+      <Diagram DiagramId="d1257939005e4cc095cb05b4c582aff2" Name="Diagram1" ZoomLevel="57" ShowGrid="true">
         <EntityTypeShape EntityType="VennerModel.Alder" Width="1.5" PointX="11.625" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.Favoritspil" Width="1.5" PointX="11.625" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.Hjemmeside" Width="1.5" PointX="11.625" PointY="10.75" IsExpanded="true" />
