@@ -31,8 +31,8 @@
                   Width="249">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding FName}" Width="90"/>
-                    <GridViewColumn Header="E-Navn" DisplayMemberBinding="{Binding LName}" Width="120"/>
+                    <GridViewColumn Header="F-Name" Width="90"/>
+                    <GridViewColumn Header="L-Name" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
