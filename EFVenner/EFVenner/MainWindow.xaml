@@ -1,0 +1,32 @@
+﻿<Window x:Class="EFVenner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFVenner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="571.716" Width="525" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="mainVenneTabelViewSource" d:DesignSource="{d:DesignInstance {x:Type local:MainVenneTabel}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource mainVenneTabelViewSource}">
+        <ListBox x:Name="listBoxMainVen" 
+                  HorizontalAlignment="Left" 
+                  Height="521" 
+                  Margin="10,10,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="212">
+
+        </ListBox>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="19" Margin="275,512,0,0" VerticalAlignment="Top" Width="96" Click="button_Click"/>
+        <ListView x:Name="listViewVen" HorizontalAlignment="Left" Height="481" Margin="241,10,0,0" VerticalAlignment="Top" Width="249" SelectionChanged="listViewVen_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding FNavn}" Width="90"/>
+                    <GridViewColumn Header="E-Navn" DisplayMemberBinding="{Binding ENavn}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

@@ -1,0 +1,815 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VennerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venId" Type="int" Nullable="false" />
+          <Property Name="foedselsdato" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Favoritspil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venId" Type="int" Nullable="false" />
+          <Property Name="spil" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hjemmeside">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venId" Type="int" Nullable="false" />
+          <Property Name="hjemmeside" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KaldeNavn">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venId" Type="int" Nullable="false" />
+          <Property Name="kaldenavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KaldenavnType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kaldenavnType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailAdr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venId" Type="int" Nullable="false" />
+          <Property Name="mailAdr" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mailType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MainVenneTabel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fornavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="efternavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="postNr" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostByTabel">
+          <Key>
+            <PropertyRef Name="postNr" />
+          </Key>
+          <Property Name="postNr" Type="int" Nullable="false" />
+          <Property Name="byNavn" Type="nvarchar" MaxLength="75" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TelefonNr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="venId" Type="int" Nullable="false" />
+          <Property Name="telefonNr" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TelefonType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="telefonType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Alder_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="Alder" Type="Self.Alder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Alder">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favoritspil_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="Favoritspil" Type="Self.Favoritspil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Favoritspil">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hjemmeside_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="Hjemmeside" Type="Self.Hjemmeside" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hjemmeside">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KaldeNavn_KaldenavnType">
+          <End Role="KaldenavnType" Type="Self.KaldenavnType" Multiplicity="1" />
+          <End Role="KaldeNavn" Type="Self.KaldeNavn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KaldenavnType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="KaldeNavn">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KaldeNavn_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="KaldeNavn" Type="Self.KaldeNavn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="KaldeNavn">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailAdr_MailType">
+          <End Role="MailType" Type="Self.MailType" Multiplicity="1" />
+          <End Role="MailAdr" Type="Self.MailAdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MailAdr">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailAdr_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="MailAdr" Type="Self.MailAdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MailAdr">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainVenneTabel_PostByTabel">
+          <End Role="PostByTabel" Type="Self.PostByTabel" Multiplicity="1" />
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostByTabel">
+              <PropertyRef Name="postNr" />
+            </Principal>
+            <Dependent Role="MainVenneTabel">
+              <PropertyRef Name="postNr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TelefonNr_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="TelefonNr" Type="Self.TelefonNr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TelefonNr">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TelefonNr_TelefonType">
+          <End Role="TelefonType" Type="Self.TelefonType" Multiplicity="1" />
+          <End Role="TelefonNr" Type="Self.TelefonNr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelefonType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TelefonNr">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="VennerModelStoreContainer">
+          <EntitySet Name="Alder" EntityType="Self.Alder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favoritspil" EntityType="Self.Favoritspil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hjemmeside" EntityType="Self.Hjemmeside" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KaldeNavn" EntityType="Self.KaldeNavn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KaldenavnType" EntityType="Self.KaldenavnType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailAdr" EntityType="Self.MailAdr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailType" EntityType="Self.MailType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainVenneTabel" EntityType="Self.MainVenneTabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostByTabel" EntityType="Self.PostByTabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TelefonNr" EntityType="Self.TelefonNr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TelefonType" EntityType="Self.TelefonType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Alder_MainVenneTabel" Association="Self.FK_Alder_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+            <End Role="Alder" EntitySet="Alder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favoritspil_MainVenneTabel" Association="Self.FK_Favoritspil_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+            <End Role="Favoritspil" EntitySet="Favoritspil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hjemmeside_MainVenneTabel" Association="Self.FK_Hjemmeside_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+            <End Role="Hjemmeside" EntitySet="Hjemmeside" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KaldeNavn_KaldenavnType" Association="Self.FK_KaldeNavn_KaldenavnType">
+            <End Role="KaldenavnType" EntitySet="KaldenavnType" />
+            <End Role="KaldeNavn" EntitySet="KaldeNavn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KaldeNavn_MainVenneTabel" Association="Self.FK_KaldeNavn_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+            <End Role="KaldeNavn" EntitySet="KaldeNavn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailAdr_MailType" Association="Self.FK_MailAdr_MailType">
+            <End Role="MailType" EntitySet="MailType" />
+            <End Role="MailAdr" EntitySet="MailAdr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailAdr_MainVenneTabel" Association="Self.FK_MailAdr_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+            <End Role="MailAdr" EntitySet="MailAdr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainVenneTabel_PostByTabel" Association="Self.FK_MainVenneTabel_PostByTabel">
+            <End Role="PostByTabel" EntitySet="PostByTabel" />
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TelefonNr_MainVenneTabel" Association="Self.FK_TelefonNr_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabel" />
+            <End Role="TelefonNr" EntitySet="TelefonNr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TelefonNr_TelefonType" Association="Self.FK_TelefonNr_TelefonType">
+            <End Role="TelefonType" EntitySet="TelefonType" />
+            <End Role="TelefonNr" EntitySet="TelefonNr" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VennerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venId" Type="Int32" Nullable="false" />
+          <Property Name="foedselsdato" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="MainVenneTabel" Relationship="Self.FK_Alder_MainVenneTabel" FromRole="Alder" ToRole="MainVenneTabel" />
+        </EntityType>
+        <EntityType Name="Favoritspil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venId" Type="Int32" Nullable="false" />
+          <Property Name="spil" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MainVenneTabel" Relationship="Self.FK_Favoritspil_MainVenneTabel" FromRole="Favoritspil" ToRole="MainVenneTabel" />
+        </EntityType>
+        <EntityType Name="Hjemmeside">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venId" Type="Int32" Nullable="false" />
+          <Property Name="hjemmeside1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MainVenneTabel" Relationship="Self.FK_Hjemmeside_MainVenneTabel" FromRole="Hjemmeside" ToRole="MainVenneTabel" />
+        </EntityType>
+        <EntityType Name="KaldeNavn">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venId" Type="Int32" Nullable="false" />
+          <Property Name="kaldenavn1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KaldenavnType" Relationship="Self.FK_KaldeNavn_KaldenavnType" FromRole="KaldeNavn" ToRole="KaldenavnType" />
+          <NavigationProperty Name="MainVenneTabel" Relationship="Self.FK_KaldeNavn_MainVenneTabel" FromRole="KaldeNavn" ToRole="MainVenneTabel" />
+        </EntityType>
+        <EntityType Name="KaldenavnType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kaldenavnType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KaldeNavns" Relationship="Self.FK_KaldeNavn_KaldenavnType" FromRole="KaldenavnType" ToRole="KaldeNavn" />
+        </EntityType>
+        <EntityType Name="MailAdr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venId" Type="Int32" Nullable="false" />
+          <Property Name="mailAdr1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MailType" Relationship="Self.FK_MailAdr_MailType" FromRole="MailAdr" ToRole="MailType" />
+          <NavigationProperty Name="MainVenneTabel" Relationship="Self.FK_MailAdr_MainVenneTabel" FromRole="MailAdr" ToRole="MainVenneTabel" />
+        </EntityType>
+        <EntityType Name="MailType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mailType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MailAdrs" Relationship="Self.FK_MailAdr_MailType" FromRole="MailType" ToRole="MailAdr" />
+        </EntityType>
+        <EntityType Name="MainVenneTabel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fornavn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="efternavn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="postNr" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alders" Relationship="Self.FK_Alder_MainVenneTabel" FromRole="MainVenneTabel" ToRole="Alder" />
+          <NavigationProperty Name="Favoritspils" Relationship="Self.FK_Favoritspil_MainVenneTabel" FromRole="MainVenneTabel" ToRole="Favoritspil" />
+          <NavigationProperty Name="Hjemmesides" Relationship="Self.FK_Hjemmeside_MainVenneTabel" FromRole="MainVenneTabel" ToRole="Hjemmeside" />
+          <NavigationProperty Name="KaldeNavns" Relationship="Self.FK_KaldeNavn_MainVenneTabel" FromRole="MainVenneTabel" ToRole="KaldeNavn" />
+          <NavigationProperty Name="MailAdrs" Relationship="Self.FK_MailAdr_MainVenneTabel" FromRole="MainVenneTabel" ToRole="MailAdr" />
+          <NavigationProperty Name="PostByTabel" Relationship="Self.FK_MainVenneTabel_PostByTabel" FromRole="MainVenneTabel" ToRole="PostByTabel" />
+          <NavigationProperty Name="TelefonNrs" Relationship="Self.FK_TelefonNr_MainVenneTabel" FromRole="MainVenneTabel" ToRole="TelefonNr" />
+        </EntityType>
+        <EntityType Name="PostByTabel">
+          <Key>
+            <PropertyRef Name="postNr" />
+          </Key>
+          <Property Name="postNr" Type="Int32" Nullable="false" />
+          <Property Name="byNavn" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MainVenneTabels" Relationship="Self.FK_MainVenneTabel_PostByTabel" FromRole="PostByTabel" ToRole="MainVenneTabel" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TelefonNr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="venId" Type="Int32" Nullable="false" />
+          <Property Name="telefonNr1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MainVenneTabel" Relationship="Self.FK_TelefonNr_MainVenneTabel" FromRole="TelefonNr" ToRole="MainVenneTabel" />
+          <NavigationProperty Name="TelefonType" Relationship="Self.FK_TelefonNr_TelefonType" FromRole="TelefonNr" ToRole="TelefonType" />
+        </EntityType>
+        <EntityType Name="TelefonType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="telefonType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TelefonNrs" Relationship="Self.FK_TelefonNr_TelefonType" FromRole="TelefonType" ToRole="TelefonNr" />
+        </EntityType>
+        <Association Name="FK_Alder_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="Alder" Type="Self.Alder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Alder">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favoritspil_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="Favoritspil" Type="Self.Favoritspil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Favoritspil">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hjemmeside_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="Hjemmeside" Type="Self.Hjemmeside" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hjemmeside">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KaldeNavn_KaldenavnType">
+          <End Role="KaldenavnType" Type="Self.KaldenavnType" Multiplicity="1" />
+          <End Role="KaldeNavn" Type="Self.KaldeNavn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KaldenavnType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="KaldeNavn">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KaldeNavn_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="KaldeNavn" Type="Self.KaldeNavn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="KaldeNavn">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailAdr_MailType">
+          <End Role="MailType" Type="Self.MailType" Multiplicity="1" />
+          <End Role="MailAdr" Type="Self.MailAdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MailAdr">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailAdr_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="MailAdr" Type="Self.MailAdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MailAdr">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainVenneTabel_PostByTabel">
+          <End Role="PostByTabel" Type="Self.PostByTabel" Multiplicity="1" />
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostByTabel">
+              <PropertyRef Name="postNr" />
+            </Principal>
+            <Dependent Role="MainVenneTabel">
+              <PropertyRef Name="postNr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TelefonNr_MainVenneTabel">
+          <End Role="MainVenneTabel" Type="Self.MainVenneTabel" Multiplicity="1" />
+          <End Role="TelefonNr" Type="Self.TelefonNr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MainVenneTabel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TelefonNr">
+              <PropertyRef Name="venId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TelefonNr_TelefonType">
+          <End Role="TelefonType" Type="Self.TelefonType" Multiplicity="1" />
+          <End Role="TelefonNr" Type="Self.TelefonNr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelefonType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TelefonNr">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VennerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alders" EntityType="Self.Alder" />
+          <EntitySet Name="Favoritspils" EntityType="Self.Favoritspil" />
+          <EntitySet Name="Hjemmesides" EntityType="Self.Hjemmeside" />
+          <EntitySet Name="KaldeNavns" EntityType="Self.KaldeNavn" />
+          <EntitySet Name="KaldenavnTypes" EntityType="Self.KaldenavnType" />
+          <EntitySet Name="MailAdrs" EntityType="Self.MailAdr" />
+          <EntitySet Name="MailTypes" EntityType="Self.MailType" />
+          <EntitySet Name="MainVenneTabels" EntityType="Self.MainVenneTabel" />
+          <EntitySet Name="PostByTabels" EntityType="Self.PostByTabel" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TelefonNrs" EntityType="Self.TelefonNr" />
+          <EntitySet Name="TelefonTypes" EntityType="Self.TelefonType" />
+          <AssociationSet Name="FK_Alder_MainVenneTabel" Association="Self.FK_Alder_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+            <End Role="Alder" EntitySet="Alders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favoritspil_MainVenneTabel" Association="Self.FK_Favoritspil_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+            <End Role="Favoritspil" EntitySet="Favoritspils" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hjemmeside_MainVenneTabel" Association="Self.FK_Hjemmeside_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+            <End Role="Hjemmeside" EntitySet="Hjemmesides" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KaldeNavn_KaldenavnType" Association="Self.FK_KaldeNavn_KaldenavnType">
+            <End Role="KaldenavnType" EntitySet="KaldenavnTypes" />
+            <End Role="KaldeNavn" EntitySet="KaldeNavns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KaldeNavn_MainVenneTabel" Association="Self.FK_KaldeNavn_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+            <End Role="KaldeNavn" EntitySet="KaldeNavns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailAdr_MailType" Association="Self.FK_MailAdr_MailType">
+            <End Role="MailType" EntitySet="MailTypes" />
+            <End Role="MailAdr" EntitySet="MailAdrs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailAdr_MainVenneTabel" Association="Self.FK_MailAdr_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+            <End Role="MailAdr" EntitySet="MailAdrs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainVenneTabel_PostByTabel" Association="Self.FK_MainVenneTabel_PostByTabel">
+            <End Role="PostByTabel" EntitySet="PostByTabels" />
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TelefonNr_MainVenneTabel" Association="Self.FK_TelefonNr_MainVenneTabel">
+            <End Role="MainVenneTabel" EntitySet="MainVenneTabels" />
+            <End Role="TelefonNr" EntitySet="TelefonNrs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TelefonNr_TelefonType" Association="Self.FK_TelefonNr_TelefonType">
+            <End Role="TelefonType" EntitySet="TelefonTypes" />
+            <End Role="TelefonNr" EntitySet="TelefonNrs" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(VennerModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(VennerModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VennerModelStoreContainer" CdmEntityContainer="VennerEntities">
+          <EntitySetMapping Name="Alders">
+            <EntityTypeMapping TypeName="VennerModel.Alder">
+              <MappingFragment StoreEntitySet="Alder">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="venId" ColumnName="venId" />
+                <ScalarProperty Name="foedselsdato" ColumnName="foedselsdato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favoritspils">
+            <EntityTypeMapping TypeName="VennerModel.Favoritspil">
+              <MappingFragment StoreEntitySet="Favoritspil">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="venId" ColumnName="venId" />
+                <ScalarProperty Name="spil" ColumnName="spil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hjemmesides">
+            <EntityTypeMapping TypeName="VennerModel.Hjemmeside">
+              <MappingFragment StoreEntitySet="Hjemmeside">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="venId" ColumnName="venId" />
+                <ScalarProperty Name="hjemmeside1" ColumnName="hjemmeside" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KaldeNavns">
+            <EntityTypeMapping TypeName="VennerModel.KaldeNavn">
+              <MappingFragment StoreEntitySet="KaldeNavn">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="venId" ColumnName="venId" />
+                <ScalarProperty Name="kaldenavn1" ColumnName="kaldenavn" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KaldenavnTypes">
+            <EntityTypeMapping TypeName="VennerModel.KaldenavnType">
+              <MappingFragment StoreEntitySet="KaldenavnType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kaldenavnType1" ColumnName="kaldenavnType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailAdrs">
+            <EntityTypeMapping TypeName="VennerModel.MailAdr">
+              <MappingFragment StoreEntitySet="MailAdr">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="venId" ColumnName="venId" />
+                <ScalarProperty Name="mailAdr1" ColumnName="mailAdr" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailTypes">
+            <EntityTypeMapping TypeName="VennerModel.MailType">
+              <MappingFragment StoreEntitySet="MailType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="mailType1" ColumnName="mailType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainVenneTabels">
+            <EntityTypeMapping TypeName="VennerModel.MainVenneTabel">
+              <MappingFragment StoreEntitySet="MainVenneTabel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fornavn" ColumnName="fornavn" />
+                <ScalarProperty Name="efternavn" ColumnName="efternavn" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="postNr" ColumnName="postNr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostByTabels">
+            <EntityTypeMapping TypeName="VennerModel.PostByTabel">
+              <MappingFragment StoreEntitySet="PostByTabel">
+                <ScalarProperty Name="postNr" ColumnName="postNr" />
+                <ScalarProperty Name="byNavn" ColumnName="byNavn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="VennerModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TelefonNrs">
+            <EntityTypeMapping TypeName="VennerModel.TelefonNr">
+              <MappingFragment StoreEntitySet="TelefonNr">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="venId" ColumnName="venId" />
+                <ScalarProperty Name="telefonNr1" ColumnName="telefonNr" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TelefonTypes">
+            <EntityTypeMapping TypeName="VennerModel.TelefonType">
+              <MappingFragment StoreEntitySet="TelefonType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="telefonType1" ColumnName="telefonType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="VennerModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="VennerModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="VennerModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="VennerModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VennerModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="VennerModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VennerModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="VennerModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="VennerModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
