@@ -11,9 +11,8 @@ namespace EFVenner
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
-
-    public partial class MainVenneTabel : DbContext
+    
+    public partial class MainVenneTabel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MainVenneTabel()

@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="VennerModel.Alder" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.Favoritspil" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.Hjemmeside" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VennerModel.KaldeNavn" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VennerModel.KaldeNavn" Width="1.5" PointX="7.875" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.KaldenavnType" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.MailAdr" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.MailType" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
