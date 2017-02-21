@@ -51,7 +51,7 @@ namespace EFVenner
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -67,7 +67,7 @@ namespace EFVenner
             }
         }
 
-        
+
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -86,6 +86,6 @@ namespace EFVenner
             }
         }
 
-        
+
     }
 }
