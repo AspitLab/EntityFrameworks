@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Moeller_EFVenner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid Margin="5">
-        
+        Title="MainWindow" Height="575" Width="525">
+
+    <Grid>
+        <ListBox x:Name="listBoxMainVen"
+                  HorizontalAlignment="Left"
+                  Height="521"
+                  Margin="10,10,0,0"
+                  VerticalAlignment="Top"
+                  Width="212">
+
+        </ListBox>
+        <Button x:Name="button"
+                Content="Button"
+                HorizontalAlignment="Left"
+                Height="19"
+                Margin="275,512,0,0"
+                VerticalAlignment="Top"
+                Width="96"/>
+        <ListView x:Name="listViewVen"
+                  HorizontalAlignment="Left"
+                  Height="481"
+                  Margin="241,10,0,0"
+                  VerticalAlignment="Top"
+                  Width="249">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding FName}" Width="90"/>
+                    <GridViewColumn Header="E-Navn" DisplayMemberBinding="{Binding LName}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
