@@ -18,7 +18,14 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="TextBoxFirstName"
+
+        <ListBox x:Name="ListboxPeople"
+                 Margin="5"
+                 Grid.Column="0"
+                 Grid.RowSpan="3"
+                 FontSize="14"/>
+
+            <TextBox x:Name="TextBoxFirstName"
                  Margin="5"
                  Grid.Column="1"
                  VerticalAlignment="Center"
