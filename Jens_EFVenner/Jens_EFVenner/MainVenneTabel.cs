@@ -7,23 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFVenner
+namespace Jens_EFVenner
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-
-    public partial class MainVenneTabel : DbContext
+    using System.Collections.ObjectModel;
+    
+    public partial class MainVenneTabel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MainVenneTabel()
         {
-            this.Alders = new HashSet<Alder>();
-            this.Favoritspils = new HashSet<Favoritspil>();
-            this.Hjemmesides = new HashSet<Hjemmeside>();
-            this.KaldeNavns = new HashSet<KaldeNavn>();
-            this.MailAdrs = new HashSet<MailAdr>();
-            this.TelefonNrs = new HashSet<TelefonNr>();
+            this.Alders = new ObservableCollection<Alder>();
+            this.Favoritspils = new ObservableCollection<Favoritspil>();
+            this.Hjemmesides = new ObservableCollection<Hjemmeside>();
+            this.KaldeNavns = new ObservableCollection<KaldeNavn>();
+            this.MailAdrs = new ObservableCollection<MailAdr>();
+            this.TelefonNrs = new ObservableCollection<TelefonNr>();
         }
     
         public int id { get; set; }
@@ -33,17 +32,17 @@ namespace EFVenner
         public int postNr { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Alder> Alders { get; set; }
+        public virtual ObservableCollection<Alder> Alders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Favoritspil> Favoritspils { get; set; }
+        public virtual ObservableCollection<Favoritspil> Favoritspils { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hjemmeside> Hjemmesides { get; set; }
+        public virtual ObservableCollection<Hjemmeside> Hjemmesides { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KaldeNavn> KaldeNavns { get; set; }
+        public virtual ObservableCollection<KaldeNavn> KaldeNavns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MailAdr> MailAdrs { get; set; }
+        public virtual ObservableCollection<MailAdr> MailAdrs { get; set; }
         public virtual PostByTabel PostByTabel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TelefonNr> TelefonNrs { get; set; }
+        public virtual ObservableCollection<TelefonNr> TelefonNrs { get; set; }
     }
 }

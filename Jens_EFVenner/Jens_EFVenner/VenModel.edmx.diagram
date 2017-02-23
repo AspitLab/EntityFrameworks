@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e1774b158c99494eb4b5dc4e81909d06" Name="Diagram1">
-        <EntityTypeShape EntityType="VennerModel.Alder" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+      <Diagram DiagramId="5cc803c4285f44839277eb524aff5610" Name="Diagram1">
+        <EntityTypeShape EntityType="VennerModel.Alder" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.Favoritspil" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VennerModel.Hjemmeside" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VennerModel.Hjemmeside" Width="1.5" PointX="0.5" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.KaldeNavn" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VennerModel.KaldenavnType" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VennerModel.KaldenavnType" Width="1.5" PointX="11.25" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.MailAdr" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.MailType" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.MainVenneTabel" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.PostByTabel" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="VennerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VennerModel.TelefonNr" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VennerModel.TelefonType" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VennerModel.TelefonNr" Width="1.5" PointX="5.375" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VennerModel.TelefonType" Width="1.5" PointX="9.625" PointY="11.875" IsExpanded="true" />
         <AssociationConnector Association="VennerModel.FK_Alder_MainVenneTabel" ManuallyRouted="false" />
         <AssociationConnector Association="VennerModel.FK_Favoritspil_MainVenneTabel" ManuallyRouted="false" />
         <AssociationConnector Association="VennerModel.FK_Hjemmeside_MainVenneTabel" ManuallyRouted="false" />

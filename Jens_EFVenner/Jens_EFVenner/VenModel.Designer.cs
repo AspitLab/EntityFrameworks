@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\CodeMappe\S1\EntityFramework\EFVenner\EFVenner\ModelVenneDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\JECL\Source\Repos\EntityFrameworks\Jens_EFVenner\Jens_EFVenner\VenModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

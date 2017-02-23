@@ -43,31 +43,31 @@ namespace EFVenner
                 if (lvi != null)
                 {
                     ClassVen cv = lvi as ClassVen;
-                    MainVenneTabel mvi = cv.venData as MainVenneTabel;
-                    MessageBox.Show(mvi.fornavn.ToString() + " " + mvi.efternavn.ToString() + "\n" + mvi.adresse.ToString() + "\n" + mvi.postNr.ToString() + " " + mvi.PostByTabel.byNavn.ToString());
+                    MainVenneTabel mvt = cv.venData as MainVenneTabel;
+                    MessageBox.Show(mvt.fornavn.ToString() + " " + mvt.efternavn.ToString() + "\n" + mvt.adresse.ToString() + "\n" + mvt.postNr.ToString() + " " + mvt.PostByTabel.byNavn.ToString());
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            listViewVen.Items.Clear();
             using (var ctx = new VennerEntities())
             {
                 var minVen = ctx.MainVenneTabels.SqlQuery("Select * from MainVenneTabel");
                 foreach (MainVenneTabel i in minVen)
                 {
-
                     this.listViewVen.Items.Add(new ClassVen { FNavn = i.fornavn.ToString(), ENavn = i.efternavn.ToString(), venData = i , postData = i.PostByTabel.byNavn.ToString()});
                 }
             }
         }
 
-
+        
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -86,6 +86,6 @@ namespace EFVenner
             }
         }
 
-
+        
     }
 }
