@@ -26,7 +26,7 @@ namespace EFVenner
     public partial class MainWindow : Window
     {
         ClassBizz cb = new ClassBizz();
-        MainVenneTabel MVT = new MainVenneTabel();
+        //MainVenneTabel MVT = new MainVenneTabel();
 
         public MainWindow()
         {
