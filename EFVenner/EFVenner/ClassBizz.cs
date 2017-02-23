@@ -10,7 +10,6 @@ namespace EFVenner
 {
     public class ClassBizz /*: INotifyPropertyChanged*/
     {
-
         public ClassBizz()
         {
 
@@ -22,16 +21,12 @@ namespace EFVenner
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
-        //public ObservableCollection<MainVenneTabel> Venner 
+        //public ObservableCollection<MainVenneTabel> Venner
         //{
         //    get
         //    {
         //        return venner;
         //    }
-
-            
-
-
         //}
     }
 }

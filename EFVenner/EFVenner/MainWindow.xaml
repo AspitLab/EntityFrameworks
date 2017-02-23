@@ -10,16 +10,30 @@
         <CollectionViewSource x:Key="mainVenneTabelViewSource" d:DesignSource="{d:DesignInstance {x:Type local:MainVenneTabel}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource mainVenneTabelViewSource}">
-        <ListBox x:Name="listBoxMainVen" 
-                  HorizontalAlignment="Left" 
-                  Height="521" 
-                  Margin="10,10,0,0" 
-                  VerticalAlignment="Top" 
+        <ListBox x:Name="listBoxMainVen"
+                  HorizontalAlignment="Left"
+                  Height="521"
+                  Margin="10,10,0,0"
+                  VerticalAlignment="Top"
                   Width="212">
-
         </ListBox>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="19" Margin="275,512,0,0" VerticalAlignment="Top" Width="96" Click="button_Click"/>
-        <ListView x:Name="listViewVen" HorizontalAlignment="Left" Height="481" Margin="241,10,0,0" VerticalAlignment="Top" Width="249" SelectionChanged="listViewVen_SelectionChanged">
+
+        <Button x:Name="button"
+                Content="Button"
+                HorizontalAlignment="Left"
+                Height="19"
+                Margin="275,512,0,0"
+                VerticalAlignment="Top"
+                Width="96"
+                Click="button_Click"/>
+
+        <ListView x:Name="listViewVen"
+                  HorizontalAlignment="Left"
+                  Height="481"
+                  Margin="241,10,0,0"
+                  VerticalAlignment="Top"
+                  Width="249"
+                  SelectionChanged="listViewVen_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding FNavn}" Width="90"/>
@@ -27,6 +41,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </Window>

@@ -8,7 +8,6 @@ namespace EFVenner
 {
     public class ClassVen
     {
-
         public ClassVen()
         {
 

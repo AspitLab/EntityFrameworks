@@ -25,7 +25,6 @@ namespace EFVenner
     /// </summary>
     public partial class MainWindow : Window
     {
-
         ClassBizz cb = new ClassBizz();
         MainVenneTabel MVT = new MainVenneTabel();
 
@@ -47,11 +46,11 @@ namespace EFVenner
                     MessageBox.Show(mvt.fornavn.ToString() + " " + mvt.efternavn.ToString() + "\n" + mvt.adresse.ToString() + "\n" + mvt.postNr.ToString() + " " + mvt.PostByTabel.byNavn.ToString());
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -62,13 +61,10 @@ namespace EFVenner
                 var minVen = ctx.MainVenneTabels.SqlQuery("Select * from MainVenneTabel");
                 foreach (MainVenneTabel i in minVen)
                 {
-                    this.listViewVen.Items.Add(new ClassVen { FNavn = i.fornavn.ToString(), ENavn = i.efternavn.ToString(), venData = i , postData = i.PostByTabel.byNavn.ToString()});
+                    this.listViewVen.Items.Add(new ClassVen { FNavn = i.fornavn.ToString(), ENavn = i.efternavn.ToString(), venData = i, postData = i.PostByTabel.byNavn.ToString() });
                 }
             }
         }
-
-        
-
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -85,7 +81,5 @@ namespace EFVenner
                 }
             }
         }
-
-        
     }
 }
