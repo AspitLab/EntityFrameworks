@@ -43,7 +43,7 @@ namespace EFVenner
                 {
                     ClassVen cv = lvi as ClassVen;
                     MainVenneTabel mvt = cv.venData as MainVenneTabel;
-                    MessageBox.Show(mvt.fornavn.ToString() + " " + mvt.efternavn.ToString() + "\n" + mvt.adresse.ToString() + "\n" + mvt.postNr.ToString() + " " + mvt.PostByTabel.byNavn.ToString());
+                    MessageBox.Show($"{mvt.fornavn.ToString()} {mvt.efternavn.ToString()}\n{mvt.adresse.ToString()}\n{mvt.postNr.ToString()} {mvt.PostByTabel.byNavn.ToString()}");
                 }
             }
             catch (Exception ex)
@@ -75,7 +75,7 @@ namespace EFVenner
                 foreach (MainVenneTabel i in studentName)
                 {
                     ListViewItem lvi = new ListViewItem();
-                    lvi.Content = i.fornavn + " " + i.efternavn;
+                    lvi.Content = $"{i.fornavn} {i.efternavn}";
                     lvi.Tag = i.id;
                     this.listBoxMainVen.Items.Add(lvi);
                 }
