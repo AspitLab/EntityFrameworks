@@ -15,13 +15,13 @@ namespace Jens_EFVenner
 
         }
 
-        public DbSet<Category> venData { get; set; }
+        //public DbSet<Object> venData { get; set; }
 
 
-        //public object venData { get; set; }
-        public string postVen { get; set; }
-        public string FNavn { get; set; }
-        public string ENavn { get; set; }
+        public MainVenneTabel venData { get; set; }
+        //public string postVen { get; set; }
+        //public string FNavn { get; set; }
+        //public string ENavn { get; set; }
 
     }
 }

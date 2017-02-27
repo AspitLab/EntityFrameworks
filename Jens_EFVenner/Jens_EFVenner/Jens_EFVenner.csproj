@@ -70,6 +70,8 @@
       <DependentUpon>VenModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ClassBiz.cs" />
+    <Compile Include="ClassVenTelefon.cs" />
+    <Compile Include="ClassVenTelefonType.cs" />
     <Compile Include="Favoritspil.cs">
       <DependentUpon>VenModel.tt</DependentUpon>
     </Compile>

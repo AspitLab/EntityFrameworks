@@ -13,12 +13,12 @@
     <Grid DataContext="{StaticResource mainVenneTabelViewSource}">
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="19" 
                 Margin="10,496,0,0" VerticalAlignment="Top" Width="96" />
-        <ListView x:Name="listViewVen" HorizontalAlignment="Left" Height="481" 
-                  Margin="10,10,0,0" VerticalAlignment="Top" Width="249" >
+        <ListView x:Name="listViewVen" HorizontalAlignment="Left" Height="481" ItemsSource="{Binding Ven}"
+                  Margin="10,10,0,0" VerticalAlignment="Top" Width="249" SelectionChanged="listViewVen_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding fornavn}" Width="90"/>
-                    <GridViewColumn Header="E-Navn" DisplayMemberBinding="{Binding efternavn}" Width="120"/>
+                    <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding Path=venData.fornavn}" Width="90"/>
+                    <GridViewColumn Header="E-Navn" DisplayMemberBinding="{Binding Path=venData.efternavn}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
