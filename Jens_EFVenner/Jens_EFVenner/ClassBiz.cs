@@ -45,7 +45,7 @@ namespace Jens_EFVenner
                 var minVen = ctx.MainVenneTabels.SqlQuery(strSql);
                 foreach (MainVenneTabel i in minVen)
                 {
-                    ClassVen cv = new ClassVen();
+                    ClassVen cv = new ClassVen(i);
                     cv.venData = i;
                     //MessageBox.Show(i.PostByTabel.byNavn);
                     var Q = i.PostByTabel.byNavn;
