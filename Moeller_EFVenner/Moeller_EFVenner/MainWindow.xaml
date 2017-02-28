@@ -15,7 +15,7 @@
                 Margin="10,0,0,10"
                 VerticalAlignment="Bottom"
                 Width="96"/>
-        <ListView x:Name="listViewVen"
+        <ListView x:Name="listViewFriend"
                   HorizontalAlignment="Left"
                   Height="481"
                   Margin="10,0,0,40"
