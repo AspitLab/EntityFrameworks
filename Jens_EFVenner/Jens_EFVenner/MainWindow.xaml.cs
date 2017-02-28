@@ -53,15 +53,15 @@ namespace Jens_EFVenner
             {
                 
                 ClassVen cv = lvi as ClassVen;
-                
-                
 
-               // MainVenneTabel mvt = cv.venData as MainVenneTabel;
 
-                MessageBox.Show(cv.venData.fornavn.ToString() + " " + cv.venData.efternavn.ToString() + "\n" + 
-                    cv.venData.adresse.ToString() + "\n" + 
+
+                // MainVenneTabel mvt = cv.venData as MainVenneTabel;
+
+                MessageBox.Show(cv.venData.fornavn.ToString() + " " + cv.venData.efternavn.ToString() + "\n" +
+                    cv.venData.adresse.ToString() + "\n" +
                     cv.venData.postNr.ToString() + " " + cv.venData.PostByTabel.byNavn.ToString() + "\n" + 
-                    cv.venData.TelefonNrs[0].telefonNr1 + " " + cv.venData.TelefonNrs[0].type.ToString());
+                    cv.venNewTelefon[0].strTelefonNr.ToString() + " " + cv.venNewTelefon[0].strTelefonType.ToString());
             }
 
         }
