@@ -9,8 +9,8 @@ namespace Jens_EFVenner
 {
     public class ClassVen : DbContext
     {
-        bool bolCheck = false;
-        ClassVenTelefonData cvtd = new ClassVenTelefonData();
+        
+        
         List<ClassVenTelefonData> venTelefon = new List<ClassVenTelefonData>();
 
         public ClassVen()
@@ -22,12 +22,15 @@ namespace Jens_EFVenner
         {
             foreach (TelefonNr tn in inMvt.TelefonNrs)
             {
+                ClassVenTelefonData cvtd = new ClassVenTelefonData();
                 cvtd.strTelefonNr = tn.telefonNr1.ToString();
                 cvtd.strTelefonType = tn.TelefonType.telefonType1.ToString();
-                this.venTelefon.Add(cvtd);
-                bolCheck = true;
+                this.venTelefon.Add(cvtd);               
             }
-            if(bolCheck == false) this.venTelefon.Add(cvtd);
+            if (inMvt.TelefonNrs.Count <= 0)
+            {
+                this.venTelefon.Add(new ClassVenTelefonData());
+            }
             venNewTelefon = venTelefon;
         }
         
