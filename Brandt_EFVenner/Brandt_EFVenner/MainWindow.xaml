@@ -15,7 +15,7 @@
             Content="Button"
             HorizontalAlignment="Left"
             Height="19"
-            Margin="10,496,0,0"
+            Margin="426,341,0,0"
             VerticalAlignment="Top"
             Width="96"/>
         <ListView
