@@ -69,6 +69,8 @@
     <Compile Include="Alder.cs">
       <DependentUpon>FriendModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClassBizz.cs" />
+    <Compile Include="ClassFriendPhoneData.cs" />
     <Compile Include="Favoritspil.cs">
       <DependentUpon>FriendModel.tt</DependentUpon>
     </Compile>
