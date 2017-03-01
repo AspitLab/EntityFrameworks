@@ -32,37 +32,22 @@ namespace Brandt_EFVenner
         {
 
             System.Windows.Data.CollectionViewSource mainVenneTabelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("mainVenneTabelViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // mainVenneTabelViewSource.Source = [generic data source]
-
-            // var collection = new ObservableCollection<string>();
-            // var collectionView = CollectionViewSource.GetDefaultView(mainVenneTabelViewSource);
 
             cb.UpdateVen();
-
-            // this.listViewVen.ItemsSource = cb.Ven.SelectMany<; // mainVenneTabelViewSource as System.Collections.IEnumerable;
         }
 
         private void listViewVen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //System.Windows.Data.CollectionViewSource mainVenneTabelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("mainVenneTabelViewSource")));
-
             var lvi = (sender as ListView).SelectedItem;
             if (lvi != null)
             {
-
                 ClassVen cv = lvi as ClassVen;
-
-
-
-                // MainVenneTabel mvt = cv.venData as MainVenneTabel;
 
                 MessageBox.Show(cv.venData.fornavn.ToString() + " " + cv.venData.efternavn.ToString() + "\n" +
                     cv.venData.adresse.ToString() + "\n" +
                     cv.venData.postNr.ToString() + " " + cv.venData.PostByTabel.byNavn.ToString() + "\n" +
-                    cv.venData.TelefonNr[0].telefonNr1 + " " + cv.venData.TelefonNr[0].type.ToString());
+                    cv.venNewTelefon[0].strTelefonNr.ToString() + " " + cv.venNewTelefon[0].strTelefonType.ToString());
             }
-
         }
     }
 }
