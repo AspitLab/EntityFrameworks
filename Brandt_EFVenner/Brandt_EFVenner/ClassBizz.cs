@@ -26,7 +26,6 @@ namespace Brandt_EFVenner
                 {
                     ClassVen cv = new ClassVen(i);
                     cv.venData = i;
-                    var Q = i.PostByTabel.byNavn;
                     Ven.Add(cv);
                 }
             }

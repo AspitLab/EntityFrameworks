@@ -10,11 +10,11 @@ namespace Brandt_EFVenner
     {
         public ClassVenPostData()
         {
-            strPostNr = "";
+            intPostNr = 0;
             strByNavn = "";
         }
 
-        public string strPostNr;
+        public int intPostNr;
         public string strByNavn;
     }
 }
