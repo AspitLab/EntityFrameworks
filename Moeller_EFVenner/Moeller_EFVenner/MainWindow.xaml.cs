@@ -17,12 +17,22 @@ namespace Moeller_EFVenner
             listViewFriend.DataContext = cb;
         }
 
+        /// <summary>
+        /// EventHandler for when the window is done loading
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CollectionViewSource mainVenneTabelViewSource = ((CollectionViewSource)(FindResource("mainVenneTabelViewSource")));
             cb.UpdateFriend();
         }
 
+        /// <summary>
+        /// This gets run everytime you select something new in the listView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listViewFriend_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var lvi = (sender as ListView).SelectedItem;

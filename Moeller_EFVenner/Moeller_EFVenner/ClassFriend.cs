@@ -13,6 +13,10 @@ namespace Moeller_EFVenner
 
         }
 
+        /// <summary>
+        /// inserts the stuff from MainVenneTabel into itself, where it can be pulled by bindings
+        /// </summary>
+        /// <param name="inMvt">This is the MainVenneTabel from the database</param>
         public ClassFriend(MainVenneTabel inMvt)
         {
             cvpd.strCityName = inMvt.PostByTabel.byNavn;

@@ -10,9 +10,11 @@ namespace Moeller_EFVenner
 
         }
 
+        /// <summary>
+        /// Gets all friend from the database, and adds them to "friend"
+        /// </summary>
         public void UpdateFriend()
         {
-
             string strSql = "Select * from MainVenneTabel";
 
             using (var ctx = new FriendsEntities())
