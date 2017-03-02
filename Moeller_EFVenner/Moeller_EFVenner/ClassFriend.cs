@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moeller_EFVenner
 {
@@ -27,11 +23,11 @@ namespace Moeller_EFVenner
                 ClassFriendPhoneData cvtd = new ClassFriendPhoneData();
                 cvtd.strPhoneNr = tn.telefonNr1.ToString();
                 cvtd.strPhoneType = tn.TelefonType.telefonType1.ToString();
-                this.FriendPhone.Add(cvtd);
+                FriendPhone.Add(cvtd);
             }
             if (inMvt.TelefonNrs.Count <= 0)
             {
-                this.FriendPhone.Add(new ClassFriendPhoneData());
+                FriendPhone.Add(new ClassFriendPhoneData());
             }
             FriendNewPhone = FriendPhone;
         }
