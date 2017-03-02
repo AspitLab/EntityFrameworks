@@ -26,7 +26,7 @@ namespace Moeller_EFVenner
         public MainWindow()
         {
             InitializeComponent();
-            this.listViewFriend.DataContext = cb;
+            listViewFriend.DataContext = cb;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -42,10 +42,10 @@ namespace Moeller_EFVenner
             {
                 ClassFriend cv = lvi as ClassFriend;
 
-                MessageBox.Show(cv.friendData.fornavn.ToString() + " " + cv.friendData.efternavn.ToString() + "\n" +
-                    cv.friendData.adresse.ToString() + "\n" +
-                    cv.friendData.postNr.ToString() + " " + cv.friendData.PostByTabel.byNavn.ToString() + "\n" +
-                    cv.friendNewTelefon[1].strTelefonNr.ToString() + " " + cv.friendNewTelefon[1].strTelefonType.ToString());
+                MessageBox.Show(cv.FriendData.fornavn.ToString() + " " + cv.FriendData.efternavn.ToString() + "\n" +
+                    cv.FriendData.adresse.ToString() + "\n" +
+                    cv.FriendData.postNr.ToString() + " " + cv.FriendData.PostByTabel.byNavn.ToString() + "\n" +
+                    cv.FriendNewPhone[0].strPhoneNr.ToString() + " " + cv.FriendNewPhone[0].strPhoneType.ToString());
             }
         }
     }

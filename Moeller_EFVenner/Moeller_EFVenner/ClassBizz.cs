@@ -27,8 +27,7 @@ namespace Moeller_EFVenner
                 foreach (MainVenneTabel i in myVen)
                 {
                     ClassFriend cf = new ClassFriend(i);
-                    cf.friendData = i;
-                    var Q = i.PostByTabel.byNavn;
+                    cf.FriendData = i;
                     friend.Add(cf);
                 }
             }

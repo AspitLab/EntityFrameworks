@@ -11,11 +11,11 @@ namespace Moeller_EFVenner
 
         public ClassFriendPhoneData()
         {
-            strTelefonNr = "";
-            strTelefonType = "";
+            strPhoneNr = "";
+            strPhoneType = "";
         }
 
-        public string strTelefonNr;
-        public string strTelefonType;
+        public string strPhoneNr;
+        public string strPhoneType;
     }
 }
