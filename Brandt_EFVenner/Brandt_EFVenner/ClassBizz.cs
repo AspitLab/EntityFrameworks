@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace Brandt_EFVenner
 {
@@ -16,7 +11,6 @@ namespace Brandt_EFVenner
 
         public void UpdateVen()
         {
-
             string strSql = "Select * from MainVenneTabel";
 
             using (var ctx = new VennerEntities())

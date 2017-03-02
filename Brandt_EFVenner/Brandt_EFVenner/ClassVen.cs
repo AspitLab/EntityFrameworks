@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Brandt_EFVenner
 {
@@ -27,11 +23,11 @@ namespace Brandt_EFVenner
                 ClassVenTelefonData cvtd = new ClassVenTelefonData();
                 cvtd.strTelefonNr = tn.telefonNr1.ToString();
                 cvtd.strTelefonType = tn.TelefonType.telefonType1.ToString();
-                this.venTelefon.Add(cvtd);
+                venTelefon.Add(cvtd);
             }
             if (inMvt.TelefonNr.Count <= 0)
             {
-                this.venTelefon.Add(new ClassVenTelefonData());
+                venTelefon.Add(new ClassVenTelefonData());
             }
             venNewTelefon = venTelefon;
         }
