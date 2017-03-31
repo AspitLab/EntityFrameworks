@@ -5,27 +5,122 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Moeller_EFVenner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="575" Width="525">
-
-    <Grid>
-        <Button x:Name="button"
-                Content="Button"
-                HorizontalAlignment="Left"
-                Height="20"
-                Margin="10,0,0,10"
-                VerticalAlignment="Bottom"
-                Width="96"/>
-        <ListView x:Name="listViewFriend"
-                  HorizontalAlignment="Left"
-                  Height="481"
-                  Margin="10,0,0,40"
-                  Width="249" VerticalAlignment="Bottom">
+        Title="MainWindow" Height="400" Width="625" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="mainVenneTabelViewSource" d:DesignSource="{d:DesignInstance {x:Type local:MainVenneTabel}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource mainVenneTabelViewSource}">
+        <Button
+            x:Name="button"
+            Content="Button"
+            HorizontalAlignment="Left"
+            Height="19"
+            Margin="10,496,0,0"
+            VerticalAlignment="Top"
+            Width="96"/>
+        <ListView
+            x:Name="listViewFriend"
+            HorizontalAlignment="Left"
+            Height="350"
+            ItemsSource="{Binding Friend}"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"
+            Width="249"
+            SelectionChanged="listViewFriend_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="F-Name" Width="90"/>
-                    <GridViewColumn Header="L-Name" Width="120"/>
+                    <GridViewColumn Header="F-Navn" DisplayMemberBinding="{Binding Path=FriendData.fornavn}" Width="90"/>
+                    <GridViewColumn Header="E-Navn" DisplayMemberBinding="{Binding Path=FriendData.efternavn}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="289,21,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label
+                Content="adress:"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                Margin="3"
+                Grid.Row="1"
+                VerticalAlignment="Center"/>
+            <TextBox
+                x:Name="adressTextBox"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Left"
+                Height="22"
+                Margin="3,5,0,5"
+                Grid.Row="1"
+                Text="{Binding adresse, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                VerticalAlignment="Center"
+                Width="246"/>
+
+            <TextBox
+                x:Name="lastnameTextBox"
+                Grid.Column="2"
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="3"
+                Grid.Row="0"
+                Text="{Binding efternavn, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                VerticalAlignment="Center"
+                Width="120"/>
+            <Label
+                Content="Name:"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                Margin="3"
+                Grid.Row="0"
+                VerticalAlignment="Center"/>
+            <TextBox
+                x:Name="firstnameTextBox"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="3"
+                Grid.Row="0"
+                Text="{Binding fornavn, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                VerticalAlignment="Center"
+                Width="120"/>
+            <Label
+                Content="Zip-Nr:"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                Margin="3"
+                Grid.Row="4"
+                VerticalAlignment="Center"/>
+            <TextBox
+                x:Name="zipNrTextBox"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="3"
+                Grid.Row="4"
+                Text="{Binding postNr, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                VerticalAlignment="Center"
+                Width="120"/>
+            <TextBox
+                x:Name="cityNameTextBox"
+                Grid.Column="2"
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="3"
+                Grid.Row="4"
+                Text="{Binding byNavn, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                VerticalAlignment="Center"
+                Width="120"/>
+        </Grid>
+
     </Grid>
 </Window>

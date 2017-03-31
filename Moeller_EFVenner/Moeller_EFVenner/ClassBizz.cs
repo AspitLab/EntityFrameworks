@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Collections.ObjectModel;
 
 namespace Moeller_EFVenner
 {
@@ -16,9 +10,11 @@ namespace Moeller_EFVenner
 
         }
 
+        /// <summary>
+        /// Gets all friend from the database, and adds them to "friend"
+        /// </summary>
         public void UpdateFriend()
         {
-
             string strSql = "Select * from MainVenneTabel";
 
             using (var ctx = new FriendsEntities())
@@ -27,8 +23,7 @@ namespace Moeller_EFVenner
                 foreach (MainVenneTabel i in myVen)
                 {
                     ClassFriend cf = new ClassFriend(i);
-                    cf.friendData = i;
-                    var Q = i.PostByTabel.byNavn;
+                    cf.FriendData = i;
                     friend.Add(cf);
                 }
             }
