@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE09E2D3-FFE7-470D-9688-B7C54D4EEB1A}</ProjectGuid>
+    <ProjectGuid>{42F46EE1-31DA-40D0-B7E4-F7EBBCFE8CE1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Brandt_EFVenner</RootNamespace>
-    <AssemblyName>Brandt_EFVenner</AssemblyName>
+    <RootNamespace>ComicsDB_EF</RootNamespace>
+    <AssemblyName>ComicsDB_EF</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ComicsDBIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -66,70 +73,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddFriend.xaml.cs">
-      <DependentUpon>AddFriend.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Alder.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="ClassAdd.cs" />
     <Compile Include="ClassBizz.cs" />
-    <Compile Include="ClassVenPostData.cs" />
-    <Compile Include="ClassVenTelefonData.cs" />
-    <Compile Include="Favoritspil.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
+    <Compile Include="ClassComics.cs" />
+    <Compile Include="ClassEdit.cs" />
+    <Compile Include="Comics.cs" />
+    <Compile Include="ComicsContext.cs" />
+    <Compile Include="InfoIssue.xaml.cs">
+      <DependentUpon>InfoIssue.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hjemmeside.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
+    <Compile Include="InfoSeries.xaml.cs">
+      <DependentUpon>InfoSeries.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KaldeNavn.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KaldenavnType.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MailAdr.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MailType.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MainVenneTabel.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Photo.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PostByTabel.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TelefonNr.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TelefonType.cs">
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VenModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VenModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VenModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VenModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VenModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VenModel.edmx</DependentUpon>
-    </Compile>
-    <Page Include="AddFriend.xaml">
+    <Compile Include="Issues.cs" />
+    <Compile Include="Series.cs" />
+    <Page Include="AddIssue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSeries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditIssue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSeries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoIssue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoSeries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,11 +115,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddIssue.xaml.cs">
+      <DependentUpon>AddIssue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddSeries.xaml.cs">
+      <DependentUpon>AddSeries.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ClassVen.cs" />
+    <Compile Include="EditIssue.xaml.cs">
+      <DependentUpon>EditIssue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSeries.xaml.cs">
+      <DependentUpon>EditSeries.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -166,46 +155,17 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Alder.datasource" />
-    <None Include="Properties\DataSources\Favoritspil.datasource" />
-    <None Include="Properties\DataSources\Hjemmeside.datasource" />
-    <None Include="Properties\DataSources\KaldeNavn.datasource" />
-    <None Include="Properties\DataSources\MailAdr.datasource" />
-    <None Include="Properties\DataSources\MailType.datasource" />
-    <None Include="Properties\DataSources\MainVenneTabel.datasource" />
-    <None Include="Properties\DataSources\PostByTabel.datasource" />
-    <None Include="Properties\DataSources\TelefonNr.datasource" />
-    <None Include="Properties\DataSources\TelefonType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <EntityDeploy Include="VenModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VenModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="VenModel.edmx.diagram">
-      <DependentUpon>VenModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VenModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VenModel.edmx</DependentUpon>
-      <LastGenOutput>VenModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="VenModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VenModel.edmx</DependentUpon>
-      <LastGenOutput>VenModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Resource Include="ComicsDBIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

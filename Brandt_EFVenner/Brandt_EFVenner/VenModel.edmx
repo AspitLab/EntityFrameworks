@@ -258,9 +258,9 @@ warning 6002: The table/view 'Venner.dbo.Photo' does not have a primary key defi
           <EntitySet Name="TelefonNr" EntityType="Self.TelefonNr" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TelefonType" EntityType="Self.TelefonType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Photo" EntityType="Self.Photo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Photo].[id] AS [id], 
-    [Photo].[venId] AS [venId], 
+            <DefiningQuery>SELECT
+    [Photo].[id] AS [id],
+    [Photo].[venId] AS [venId],
     [Photo].[photoName] AS [photoName]
     FROM [dbo].[Photo] AS [Photo]</DefiningQuery>
           </EntitySet>

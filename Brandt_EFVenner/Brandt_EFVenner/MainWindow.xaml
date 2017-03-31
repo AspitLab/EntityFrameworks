@@ -11,13 +11,14 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource mainVenneTabelViewSource}">
         <Button
-            x:Name="button"
-            Content="Button"
+            x:Name="buttonSave"
+            Content="Gem ændringer"
             HorizontalAlignment="Left"
-            Height="19"
+            Height="25"
             Margin="426,341,0,0"
             VerticalAlignment="Top"
-            Width="96"/>
+            Width="100"
+            Click="buttonSave_Click"/>
         <ListView
             x:Name="listViewVen"
             HorizontalAlignment="Left"
@@ -117,10 +118,28 @@
                 Height="23"
                 Margin="3"
                 Grid.Row="4"
-                Text="{Binding byNavn, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
+                Text="{Binding byNavn, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                 VerticalAlignment="Center"
                 Width="120"/>
         </Grid>
+        <Button
+            x:Name="buttonAdd"
+            Content="Tilføj ven"
+            HorizontalAlignment="Left"
+            Height="25"
+            Margin="289,341,0,0"
+            VerticalAlignment="Top"
+            Width="103"
+            Click="buttonAdd_Click"/>
+        <Button
+            x:Name="buttonDelete"
+            Content="Slet ven"
+            HorizontalAlignment="Left"
+            Height="28"
+            Margin="360,300,0,0"
+            VerticalAlignment="Top"
+            Width="97"
+            Click="buttonDelete_Click"/>
 
     </Grid>
 </Window>

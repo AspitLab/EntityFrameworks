@@ -1,0 +1,166 @@
+﻿<Window x:Class="ComicsDB_EF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComicsDB_EF"
+        mc:Ignorable="d"
+        Title="Comics Database" Loaded="Window_Loaded" Height="450" MinHeight="450" MaxHeight="450" Width="850" MinWidth="850" MaxWidth="850">
+    <Grid>
+        <!-- Column Definition -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Row definition -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Series listview-->
+        <ListView
+            x:Name="listViewSeries"
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding listViewSeries}"
+            Margin="5,5,5,5"
+            SelectionChanged="listViewSeries_SelectionChanged"
+            MouseDoubleClick="listViewSeries_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Publisher" DisplayMemberBinding="{Binding Path=SeriesData.strPublisher}" Width="auto"/>
+                    <GridViewColumn Header="Universe" DisplayMemberBinding="{Binding Path=SeriesData.strUniverse}" Width="auto"/>
+                    <GridViewColumn Header="Series" DisplayMemberBinding="{Binding Path=SeriesData.strSeries}" Width="auto"/>
+                    <GridViewColumn Header="Collected issues" DisplayMemberBinding="{Binding Path=SeriesData.intCollIss}" Width="auto"/>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="auto"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <!-- Series buttons -->
+        <Button
+        x:Name="buttonAddSeries"
+        Content="Add series"
+        Grid.Column="1"
+        Margin="5,5,5,5"
+        Grid.Row="3"
+        Click="buttonAddSeries_Click"/>
+        <Button
+        x:Name="buttonEditSeries"
+        Content="Edit series"
+        Grid.Column="2"
+        Margin="5,5,5,5"
+        Grid.Row="3"
+        Click="buttonEditSeries_Click"/>
+        <Button
+        x:Name="buttonDelSeries"
+        Content="Delete series"
+        Grid.Column="3"
+        Margin="5,5,5,5"
+        Grid.Row="3"
+        Click="buttonDelSeries_Click"/>
+        <!-- Series search -->
+        <TextBox
+        x:Name="textBoxSearchSeries"
+        Grid.Column="1"
+        Grid.ColumnSpan="2"
+        Margin="5,5,5,5"
+        Grid.Row="1"
+        TextWrapping="Wrap"
+        Text=""/>
+        <Button
+        x:Name="buttonSearchSeries"
+        Content="Search series"
+        Grid.Column="3"
+        Margin="5,5,5,5"
+        Grid.Row="1"
+        Click="buttonSearchSeries_Click"/>
+        <!-- Issues Listview-->
+        <ListView
+            x:Name="listViewIssues"
+            Grid.ColumnSpan="3"
+            Grid.Column="5"
+            ItemsSource="{Binding listViewIssues}"
+            Margin="5,5,5,5"
+            Grid.Row="2"
+            MouseDoubleClick="listViewIssues_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Series" DisplayMemberBinding="{Binding Path=IssuesData.strSeries}" Width="auto"/>
+                    <GridViewColumn Header="#" DisplayMemberBinding="{Binding Path=IssuesData.intNumber}" Width="auto"/>
+                    <GridViewColumn Header="Writer" DisplayMemberBinding="{Binding Path=IssuesData.strWriter}" Width="auto"/>
+                    <GridViewColumn Header="Penciller" DisplayMemberBinding="{Binding Path=IssuesData.strPenciller}" Width="auto"/>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="auto"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <!-- Issues buttons -->
+        <Button
+            x:Name="buttonAddIssues"
+            Content="Add Issue"
+            Grid.Column="5"
+            Margin="5,5,5,5"
+            Grid.Row="3"
+            Click="buttonAddIssues_Click"/>
+        <Button
+        x:Name="buttonEditIssues"
+        Content="Edit Issue"
+        Grid.Column="6"
+        Margin="5,5,5,5"
+        Grid.Row="3"
+        Click="buttonEditIssues_Click"/>
+        <Button
+        x:Name="buttonDelIssues"
+        Content="Delete Issue"
+        Grid.Column="7"
+        Margin="5,5,5,5"
+        Grid.Row="3"
+        Click="buttonDelIssues_Click"/>
+        <!-- Issues Search -->
+        <TextBox
+        x:Name="textBoxSearchIssues"
+        Grid.Column="5"
+        Grid.ColumnSpan="2"
+        Margin="5,5,5,5"
+        Grid.Row="1"
+        TextWrapping="Wrap"
+        Text=""/>
+        <Button
+        x:Name="buttonSearchIssues"
+        Content="Search issues"
+        Grid.Column="7"
+        Margin="5,5,5,5"
+        Grid.Row="1"
+        Click="buttonSearchIssues_Click"/>
+    </Grid>
+</Window>

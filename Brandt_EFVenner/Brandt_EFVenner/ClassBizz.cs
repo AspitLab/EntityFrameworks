@@ -1,15 +1,17 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Brandt_EFVenner
 {
-    class ClassBizz
+    public class ClassBizz
     {
+        ClassVen cv = new ClassVen();
         public ClassBizz()
         {
 
         }
 
-        public void UpdateVen()
+        public void UpdateListview()
         {
             string strSql = "Select * from MainVenneTabel";
 
